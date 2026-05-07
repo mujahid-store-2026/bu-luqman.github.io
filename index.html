@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUJAHED STORE | الإدارة العامة</title>
+    <style>
+        :root {
+            --neon: #00d2ff;
+            --glass: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0; padding: 20px;
+            min-height: 100vh;
+        }
+
+        .sci-fi-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .admin-header {
+            border-bottom: 2px solid var(--neon);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .admin-names {
+            font-size: 0.9rem;
+            color: var(--neon);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 15px;
+            transition: 0.3s ease;
+        }
+
+        .item:hover {
+            border-color: var(--neon);
+            background: rgba(0, 210, 255, 0.05);
+        }
+
+        .btn-order {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: white; border: none;
+            padding: 10px; border-radius: 10px;
+            width: 100%; font-weight: bold;
+            cursor: pointer; margin-top: 10px;
+        }
+
+        /* نظام تنقل احترافي */
+        .navbar {
+            position: fixed; bottom: 15px; left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            padding: 10px 40px;
+            display: flex; gap: 30px;
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+<div class="sci-fi-card">
+    <div class="admin-header">
+        <h1 style="margin:0; font-size: 1.5rem;">MUJAHED STORE</h1>
+        <div class="admin-names">أبو لقمان ❯ أبو القعقاع</div>
+    </div>
+    <p style="font-size: 0.8rem; opacity: 0.7;">نظام ذكي متكامل لخدمات الألعاب والأرقام</p>
+</div>
+
+<h3 style="color: var(--neon); margin-right: 10px;">❖ الألعاب والبرامج</h3>
+<div class="product-grid">
+    <div class="item">
+        <h4>PUBG Mobile</h4>
+        <button class="btn-order" onclick="sendOrder('شحن ببجي')">اطلب الآن</button>
+    </div>
+    <div class="item">
+        <h4>Free Fire</h4>
+        <button class="btn-order" onclick="sendOrder('شحن فري فاير')">اطلب الآن</button>
+    </div>
+    <div class="item">
+        <h4>أرقام وهمية</h4>
+        <button class="btn-order" onclick="sendOrder('رقم تليجرام/واتساب')">اطلب الآن</button>
+    </div>
+    <div class="item">
+        <h4>شام كاش</h4>
+        <button class="btn-order" onclick="sendOrder('رصيد شام كاش')">اطلب الآن</button>
+    </div>
+</div>
+
+<div class="navbar">
+    <span>💳</span>
+    <span style="font-size: 1.5rem; color: var(--neon);">🏠</span>
+    <span>🛒</span>
+</div>
+
+<script>
+    function sendOrder(service) {
+        // الرقم الخاص بك (أبو لقمان)
+        const myNumber = "963947775673"; 
+        const text = `مرحباً، أريد الاستفسار عن خدمة: [${service}] في متجر مجاهد.`;
+        window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
