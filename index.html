@@ -3,130 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUJAHED STORE | الإدارة العامة</title>
+    <title>متجر مجاهد | إدارة أبو لقمان</title>
+    
     <style>
         :root {
-            --neon: #00d2ff;
-            --glass: rgba(255, 255, 255, 0.07);
-            --border: rgba(255, 255, 255, 0.15);
+            --primary-color: #00d2ff; /* اللون السماوي */
+            --glass-bg: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.15);
         }
 
         body {
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);
             color: #e0e0e0;
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0; padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
         }
 
-        .sci-fi-card {
-            background: var(--glass);
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* بطاقة العنوان الرئيسية */
+        .glass-card {
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 25px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);
-            margin-bottom: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.2);
+            margin-bottom: 30px;
         }
 
-        .admin-header {
-            border-bottom: 2px solid var(--neon);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        .admin-name {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin: 10px 0;
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+            font-weight: bold;
         }
 
-        .admin-names {
-            font-size: 0.9rem;
-            color: var(--neon);
-            text-transform: uppercase;
+        .sub-title {
             letter-spacing: 2px;
+            opacity: 0.8;
+            font-size: 1rem;
         }
 
+        /* شبكة المنتجات */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
         }
 
-        .item {
+        .product-item {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
+            border: 1px solid var(--glass-border);
             border-radius: 15px;
-            padding: 15px;
-            transition: 0.3s ease;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .item:hover {
-            border-color: var(--neon);
-            background: rgba(0, 210, 255, 0.05);
+        .product-item:hover {
+            border-color: var(--primary-color);
+            background: rgba(0, 210, 255, 0.08);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-order {
             background: linear-gradient(45deg, #00d2ff, #3a7bd5);
-            color: white; border: none;
-            padding: 10px; border-radius: 10px;
-            width: 100%; font-weight: bold;
-            cursor: pointer; margin-top: 10px;
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 15px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        /* نظام تنقل احترافي */
-        .navbar {
-            position: fixed; bottom: 15px; left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            padding: 10px 40px;
-            display: flex; gap: 30px;
-            border: 1px solid var(--border);
+        .btn-order:hover {
+            filter: brightness(1.2);
+            letter-spacing: 1px;
+        }
+
+        /* التذييل (الفوتر) */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--glass-border);
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-<div class="sci-fi-card">
-    <div class="admin-header">
-        <h1 style="margin:0; font-size: 1.5rem;">MUJAHED STORE</h1>
-        <div class="admin-names">أبو لقمان ❯ أبو القعقاع</div>
+<div class="container">
+    <div class="glass-card">
+        <div class="sub-title">الإدارة العامة لمتجر مجاهد</div>
+        <h1 class="admin-name">أبو لقمان</h1>
+        <p>نقدم لكم أفضل المنتجات والخدمات البرمجية</p>
     </div>
-    <p style="font-size: 0.8rem; opacity: 0.7;">نظام ذكي متكامل لخدمات الألعاب والأرقام</p>
-</div>
 
-<h3 style="color: var(--neon); margin-right: 10px;">❖ الألعاب والبرامج</h3>
-<div class="product-grid">
-    <div class="item">
-        <h4>PUBG Mobile</h4>
-        <button class="btn-order" onclick="sendOrder('شحن ببجي')">اطلب الآن</button>
-    </div>
-    <div class="item">
-        <h4>Free Fire</h4>
-        <button class="btn-order" onclick="sendOrder('شحن فري فاير')">اطلب الآن</button>
-    </div>
-    <div class="item">
-        <h4>أرقام وهمية</h4>
-        <button class="btn-order" onclick="sendOrder('رقم تليجرام/واتساب')">اطلب الآن</button>
-    </div>
-    <div class="item">
-        <h4>شام كاش</h4>
-        <button class="btn-order" onclick="sendOrder('رصيد شام كاش')">اطلب الآن</button>
-    </div>
-</div>
+    <div class="product-grid">
+        <div class="product-item">
+            <h3>منتج 1</h3>
+            <p>سعر خاص</p>
+            <button class="btn-order">شراء الآن</button>
+        </div>
 
-<div class="navbar">
-    <span>💳</span>
-    <span style="font-size: 1.5rem; color: var(--neon);">🏠</span>
-    <span>🛒</span>
-</div>
+        <div class="product-item">
+            <h3>منتج 2</h3>
+            <p>عرض محدود</p>
+            <button class="btn-order">شراء الآن</button>
+        </div>
 
-<script>
-    function sendOrder(service) {
-        // الرقم الخاص بك (أبو لقمان)
-        const myNumber = "963947775673"; 
-        const text = `مرحباً، أريد الاستفسار عن خدمة: [${service}] في متجر مجاهد.`;
-        window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(text)}`, '_blank');
-    }
-</script>
+        <div class="product-item">
+            <h3>منتج 3</h3>
+            <p>الأكثر طلباً</p>
+            <button class="btn-order">شراء الآن</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>تم التطوير بواسطة <span class="highlight">أبو لقمان</span> &copy; 2024</p>
+    </footer>
+</div>
 
 </body>
 </html>
