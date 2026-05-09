@@ -7,7 +7,7 @@
     
     <style>
         :root {
-            --primary-color: #00d2ff; /* اللون السماوي */
+            --primary-color: #00d2ff;
             --glass-bg: rgba(255, 255, 255, 0.07);
             --glass-border: rgba(255, 255, 255, 0.15);
         }
@@ -27,7 +27,6 @@
             padding: 20px;
         }
 
-        /* بطاقة العنوان الرئيسية */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -48,16 +47,9 @@
             font-weight: bold;
         }
 
-        .sub-title {
-            letter-spacing: 2px;
-            opacity: 0.8;
-            font-size: 1rem;
-        }
-
-        /* شبكة المنتجات */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 20px;
         }
 
@@ -74,7 +66,6 @@
             border-color: var(--primary-color);
             background: rgba(0, 210, 255, 0.08);
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-order {
@@ -87,61 +78,54 @@
             width: 100%;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
         }
 
-        .btn-order:hover {
-            filter: brightness(1.2);
-            letter-spacing: 1px;
-        }
-
-        /* التذييل (الفوتر) */
         footer {
             margin-top: 50px;
             text-align: center;
             padding: 20px;
             border-top: 1px solid var(--glass-border);
-            font-size: 0.9rem;
             color: #888;
         }
 
-        .highlight {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
+        .highlight { color: var(--primary-color); font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="glass-card">
-        <div class="sub-title">الإدارة العامة لمتجر مجاهد</div>
+        <div style="opacity: 0.8;">الإدارة العامة لمتجر مجاهد</div>
         <h1 class="admin-name">أبو لقمان</h1>
-        <p>نقدم لكم أفضل المنتجات والخدمات البرمجية</p>
+        <p>خدمات رقمية • شحن ألعاب • أرقام وهمية</p>
     </div>
 
     <div class="product-grid">
         <div class="product-item">
-            <h3>منتج 1</h3>
-            <p>سعر خاص</p>
-            <button class="btn-order">شراء الآن</button>
+            <div style="font-size: 2.5rem;">🎮</div>
+            <h3>شحن ببجي</h3>
+            <p>تسليم فوري وآمن</p>
+            <button class="btn-order">اطلب الآن</button>
         </div>
 
         <div class="product-item">
-            <h3>منتج 2</h3>
-            <p>عرض محدود</p>
-            <button class="btn-order">شراء الآن</button>
+            <div style="font-size: 2.5rem;">📱</div>
+            <h3>أرقام وهمية</h3>
+            <p>تفعيل فوري (5Sim)</p>
+            <button class="btn-order">اطلب الآن</button>
         </div>
 
         <div class="product-item">
-            <h3>منتج 3</h3>
-            <p>الأكثر طلباً</p>
-            <button class="btn-order">شراء الآن</button>
+            <div style="font-size: 2.5rem;">🚀</div>
+            <h3>سوشيال ميديا</h3>
+            <p>متابعين وتفاعل</p>
+            <button class="btn-order">اطلب الآن</button>
         </div>
     </div>
 
     <footer>
-        <p>تم التطوير بواسطة <span class="highlight">أبو لقمان</span> &copy; 2024</p>
+        <p>إدارة: <span class="highlight">أبو لقمان</span> و <span class="highlight">أبو القعقاع</span></p>
+        <p>&copy; 2026 جميع الحقوق محفوظة</p>
     </footer>
 </div>
 
