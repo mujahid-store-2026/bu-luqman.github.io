@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة Luqman Tech | v60.1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-blue: #00f2ff; --neon-green: #00ff88; --dark-bg: #0a0b10; }
+        body { background-color: var(--dark-bg); color: white; font-family: 'Cairo', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        /* الهيدر الجديد بالألقاب */
+        .admin-header {
+            background: linear-gradient(180deg, rgba(0, 40, 80, 0.9) 0%, rgba(10, 11, 16, 1) 100%);
+            border-bottom: 2px solid var(--neon-blue);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .profile-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            padding: 15px;
+            border-radius: 15px;
+            min-width: 220px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        /* مركز العمليات اليدوي */
+        .order-section { padding: 25px; }
+        .order-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 5px solid var(--neon-blue);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .order-card:hover { background: rgba(255, 255, 255, 0.07); transform: scale(1.01); }
+
+        .btn-status {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Cairo';
+            transition: 0.2s;
+        }
+        .btn-done { background: var(--neon-green); color: black; }
+        .btn-wait { background: #f1c40f; color: black; }
+        
+        .badge { background: var(--neon-blue); color: black; padding: 2px 8px; border-radius: 5px; font-size: 0.8em; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-header">
+        <h1 style="color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue);">Luqman Tech Admin</h1>
+        <p>غرفة العمليات اليدوية (المرحلة التأسيسية)</p>
+        
+        <div class="profile-container">
+            <div class="profile-card" style="border-color: var(--neon-blue);">
+                <h3 style="color: var(--neon-blue); margin:0;">أبو لقمان</h3>
+                <div style="font-size: 0.85em; color: #ccc;">المهندس التنفيذي والمصمم الإبداعي</div>
+                <div style="direction: ltr; margin-top:10px; font-weight:bold;">0947775673</div>
+            </div>
+            <div class="profile-card" style="border-color: var(--neon-green);">
+                <h3 style="color: var(--neon-green); margin:0;">أبو القعقاع</h3>
+                <div style="font-size: 0.85em; color: #ccc;">الشريك الاستراتيجي والداعم اللوجستي</div>
+                <div style="direction: ltr; margin-top:10px; font-weight:bold;">+212780851088</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-section">
+        <h2 style="border-right: 4px solid var(--neon-blue); padding-right: 15px;">طلبات الزبائن الحالية 📥</h2>
+        
+        <div id="orders-list">
+            <div class="order-card">
+                <div>
+                    <span class="badge">GAME</span>
+                    <strong>ببجي موبايل - 660 شدة</strong><br>
+                    <small>ID: 512344556 | السعر: 125,000 ل.س</small>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-status btn-wait">انتظار الدفع</button>
+                    <button class="btn-status btn-done" onclick="this.parentElement.parentElement.style.opacity='0.5'">تم الشحن ✅</button>
+                </div>
+            </div>
+
+            <div class="order-card" style="border-right-color: var(--neon-green);">
+                <div>
+                    <span class="badge" style="background:var(--neon-green)">MOBILE</span>
+                    <strong>تحويل رصيد سيريتل</strong><br>
+                    <small>الرقم: 09xxxxxxx | المبلغ: 50,000 ل.س</small>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-status btn-done" onclick="alert('جاري الشحن...')">شحن الآن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // هنا سيتم وضع كود Firebase لاحقاً لجلب الطلبات الحقيقية
+        console.log("Admin Panel Loaded Successfully.");
+    </script>
+</body>
+</html>
