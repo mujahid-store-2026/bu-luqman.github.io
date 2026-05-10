@@ -3,131 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر مجاهد | إدارة أبو لقمان</title>
+    <title>متجر مجاهد - أبو لقمان</title>
     
+    <link rel="manifest" href="manifest.json">
+    
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <style>
-        :root {
-            --primary-color: #00d2ff;
-            --glass-bg: rgba(255, 255, 255, 0.07);
-            --glass-border: rgba(255, 255, 255, 0.15);
-        }
-
         body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: sans-serif;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);
-            color: #e0e0e0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0b1b27 0%, #050a0f 100%);
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
         .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.2);
-            margin-bottom: 30px;
+            width: 85%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
         }
-
-        .admin-name {
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin: 10px 0;
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
-            font-weight: bold;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-        }
-
-        .product-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
+        h1 { color: #00d2ff; font-size: 26px; margin-bottom: 5px; text-shadow: 0 0 15px rgba(0, 210, 255, 0.5); }
+        .owner { color: #888; font-size: 14px; margin-bottom: 25px; }
+        .balance-box {
+            background: rgba(0, 210, 255, 0.05);
+            border: 1px dashed #00d2ff;
             border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
+            padding: 25px;
         }
-
-        .product-item:hover {
-            border-color: var(--primary-color);
-            background: rgba(0, 210, 255, 0.08);
-            transform: translateY(-10px);
-        }
-
-        .btn-order {
-            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
-            border: none;
-            color: white;
-            padding: 12px;
-            border-radius: 10px;
-            margin-top: 15px;
-            width: 100%;
-            cursor: pointer;
+        .balance-label { color: #aaa; font-size: 16px; }
+        .balance-amount {
+            font-size: 36px;
             font-weight: bold;
+            color: #ffcc00;
+            display: block;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
         }
-
-        footer {
-            margin-top: 50px;
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid var(--glass-border);
-            color: #888;
-        }
-
-        .highlight { color: var(--primary-color); font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="container">
     <div class="glass-card">
-        <div style="opacity: 0.8;">الإدارة العامة لمتجر مجاهد</div>
-        <h1 class="admin-name">أبو لقمان</h1>
-        <p>خدمات رقمية • شحن ألعاب • أرقام وهمية</p>
-    </div>
-
-    <div class="product-grid">
-        <div class="product-item">
-            <div style="font-size: 2.5rem;">🎮</div>
-            <h3>شحن ببجي</h3>
-            <p>تسليم فوري وآمن</p>
-            <button class="btn-order">اطلب الآن</button>
-        </div>
-
-        <div class="product-item">
-            <div style="font-size: 2.5rem;">📱</div>
-            <h3>أرقام وهمية</h3>
-            <p>تفعيل فوري (5Sim)</p>
-            <button class="btn-order">اطلب الآن</button>
-        </div>
-
-        <div class="product-item">
-            <div style="font-size: 2.5rem;">🚀</div>
-            <h3>سوشيال ميديا</h3>
-            <p>متابعين وتفاعل</p>
-            <button class="btn-order">اطلب الآن</button>
+        <h1>متجر مجاهد الرقمي</h1>
+        <div class="owner">إدارة: <strong>أبو لقمان</strong></div>
+        
+        <div class="balance-box">
+            <span class="balance-label">رصيدك المتوفر حالياً:</span>
+            <span id="user-balance" class="balance-amount">جاري التحميل...</span>
         </div>
     </div>
 
-    <footer>
-        <p>إدارة: <span class="highlight">أبو لقمان</span> و <span class="highlight">أبو القعقاع</span></p>
-        <p>&copy; 2026 جميع الحقوق محفوظة</p>
-    </footer>
-</div>
-
+    <script type="module" src="script.js"></script>
 </body>
 </html>
