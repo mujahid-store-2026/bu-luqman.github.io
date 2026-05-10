@@ -3,54 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر مجاهد - أبو لقمان</title>
+    <title>متجر مجاهد الرقمي</title>
     
-    <link rel="manifest" href="manifest.json">
-    
-    <meta name="theme-color" content="#0a0a0a">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
     <style>
         body {
-            background-color: #0a0a0a;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: white;
-            font-family: sans-serif;
-            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #0b1b27 0%, #050a0f 100%);
+            min-height: 100vh;
+            margin: 0;
         }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 30px;
+            width: 320px;
             text-align: center;
-            width: 85%;
-            max-width: 400px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
-        h1 { color: #00d2ff; font-size: 26px; margin-bottom: 5px; text-shadow: 0 0 15px rgba(0, 210, 255, 0.5); }
-        .owner { color: #888; font-size: 14px; margin-bottom: 25px; }
+
+        h1 {
+            color: #00d2ff;
+            text-shadow: 0 0 10px #00d2ff;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .admin-tag {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
         .balance-box {
-            background: rgba(0, 210, 255, 0.05);
-            border: 1px dashed #00d2ff;
+            border: 2px dashed #00d2ff;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
+            margin: 20px 0;
         }
-        .balance-label { color: #aaa; font-size: 16px; }
-        .balance-amount {
-            font-size: 36px;
+
+        #balance-value {
+            font-size: 28px;
             font-weight: bold;
-            color: #ffcc00;
-            display: block;
+            color: #ffca28;
+            text-shadow: 0 0 15px #ffca28;
+        }
+
+        .btn {
+            background: rgba(0, 210, 255, 0.2);
+            border: 1px solid #00d2ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
             margin-top: 10px;
-            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00d2ff;
+            box-shadow: 0 0 20px #00d2ff;
         }
     </style>
 </head>
@@ -58,14 +81,42 @@
 
     <div class="glass-card">
         <h1>متجر مجاهد الرقمي</h1>
-        <div class="owner">إدارة: <strong>أبو لقمان</strong></div>
-        
-        <div class="balance-box">
-            <span class="balance-label">رصيدك المتوفر حالياً:</span>
-            <span id="user-balance" class="balance-amount">جاري التحميل...</span>
+        <div class="admin-tag">
+            إدارة: <strong>أبو لقمان</strong> <br>
+            بإشراف: <strong>أبو القعقاع</strong>
         </div>
+
+        <div class="balance-box">
+            <div style="font-size: 14px;">إجمالي المبيعات (أحدث طلب):</div>
+            <div id="balance-value">جاري التحميل...</div>
+        </div>
+
+        <button class="btn" onclick="location.reload()">تحديث البيانات</button>
     </div>
 
-    <script type="module" src="script.js"></script>
+    <script>
+        // إعدادات Firebase من الصور الخاصة بك
+        const firebaseConfig = {
+            databaseURL: "https://matjar-mujahid-656dc-default-rtdb.firebaseio.com/"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // جلب البيانات بناءً على هيكلية الصور (مسار orders)
+        const ordersRef = database.ref('orders/554433/amount'); 
+        
+        ordersRef.on('value', (snapshot) => {
+            const amount = snapshot.val();
+            if (amount !== null) {
+                document.getElementById('balance-value').innerText = amount + " ل.س";
+            } else {
+                document.getElementById('balance-value').innerText = "لا يوجد بيانات";
+            }
+        }, (error) => {
+            document.getElementById('balance-value').innerText = "خطأ اتصال";
+        });
+    </script>
+
 </body>
 </html>
